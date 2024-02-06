@@ -20,14 +20,6 @@ function formatToPopOver(date) {
     var months = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
     return `${day}. ${months[month - 1]} ${year}`;
 }
-// function isClosedLbu(date) {
-//     const currentDate = new Date();
-//     const year = currentDate.getFullYear();
-//     const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-//     const day = String(currentDate.getDate()).padStart(2, '0');
-//     const formattedDate = `${year}${month}${day}`;
-//     return (formattedDate > date);
-// }
 function msg(text) {
     sap.m.MessageToast.show(text, {
         duration: 3000,
@@ -64,14 +56,14 @@ function parseStreamError(error) {
     const p1 = rsp.indexOf("</message>");
     return rsp.substring(p0 + 23, p1);
 }
-// function getText(key) {
-//     jQuery.sap.require("jquery.sap.resources");
-//     const oBundle = jQuery.sap.resources({
-//         url: "sap/bc/ui5_ui5/i18n.properties",
-//         locale: sap.ui.getCore().getConfiguration().getLanguage()
-//     });
-//     return oBundle.getText(key);
-// }
+function getText(key) {
+    jQuery.sap.require("jquery.sap.resources");
+    const oBundle = jQuery.sap.resources({
+        url: "sap/bc/ui5_ui5/i18n.properties",
+        locale: sap.ui.getCore().getConfiguration().getLanguage()
+    });
+    return oBundle.getText(key);
+}
 function getIntegerFromDecimal(value) {
     if (!value) {
         return "";
